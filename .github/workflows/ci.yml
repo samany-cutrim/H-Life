@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - uses: snok/install-poetry@v1
+        with:
+          version: "1.6.1"
+      - name: Install dependencies
+        working-directory: backend
+        run: |
+          poetry install
+      - name: Run tests
+        working-directory: backend
+        run: |
+          poetry run pytest --maxfail=1 --disable-warnings
+      - name: Check migrations
+        working-directory: backend
+        run: |
+          poetry run alembic current
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+          cache: "pnpm"
+      - name: Install dependencies
+        working-directory: frontend
+        run: pnpm install
+      - name: Lint & Test
+        working-directory: frontend
+        run: |
+          pnpm lint
+          pnpm test -- --runInBand
+
+  mobile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.16.0"
+      - name: Install dependencies
+        working-directory: mobile
+        run: flutter pub get
+      - name: Run tests
+        working-directory: mobile
+        run: flutter test
