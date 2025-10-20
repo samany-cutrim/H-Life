@@ -1,0 +1,32 @@
+name: h_life_mobile
+description: Mobile app for H-Life with comprehensive health and fitness features.
+publish_to: 'none'
+version: 0.1.0+1
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: ^3.16.0
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.4.0
+  go_router: ^12.0.0
+  dio: ^5.4.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  firebase_core: ^2.24.0
+  firebase_messaging: ^14.7.0
+  camera: ^0.11.0+1
+  flutter_tts: ^4.0.2
+  speech_to_text: ^6.3.0
+  fl_chart: ^0.63.0
+  local_auth: ^2.1.7
+  intl: ^0.18.1
+  shared_preferences: ^2.2.2
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
