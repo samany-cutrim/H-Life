@@ -1,0 +1,12 @@
+# Flutter/Dart/Pub related
+**/doc/api/
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+flutter_*.png
+*.dart_tool/
+**/Generated.xcconfig
+**/xcuserdata/
+.DS_Store
