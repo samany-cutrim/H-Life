@@ -1,0 +1,32 @@
+{
+  "modalities": [
+    {
+      "id": "strength_fullbody",
+      "name": "Força Corpo Inteiro",
+      "frequency_per_week": 3,
+      "blocks": [
+        {"weeks": 1, "focus": "Adaptação", "progression": "2x12"},
+        {"weeks": 3, "focus": "Força", "progression": "3x10"},
+        {"weeks": 6, "focus": "Hipertrofia", "progression": "4x8"}
+      ],
+      "exercises": [
+        {"name": "Agachamento", "equipment": "Barra", "video_url": "https://cdn.h-life.test/squat.mp4"},
+        {"name": "Supino reto", "equipment": "Barra", "video_url": "https://cdn.h-life.test/bench.mp4"},
+        {"name": "Remada curvada", "equipment": "Barra"}
+      ]
+    },
+    {
+      "id": "cardio_interval",
+      "name": "Cardio Intervalado",
+      "frequency_per_week": 2,
+      "blocks": [
+        {"weeks": 2, "focus": "Base", "progression": "4x2min"},
+        {"weeks": 4, "focus": "Progressivo", "progression": "6x2min"}
+      ],
+      "exercises": [
+        {"name": "Corrida intervalada", "equipment": "Esteira"},
+        {"name": "Bike sprint", "equipment": "Bike"}
+      ]
+    }
+  ]
+}

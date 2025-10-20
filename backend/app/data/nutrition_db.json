@@ -1,0 +1,68 @@
+{
+  "foods": [
+    {
+      "id": "oats",
+      "name": "Aveia em flocos",
+      "portion": {
+        "unit": "cup",
+        "grams": 80,
+        "kcal": 300,
+        "protein_g": 10,
+        "carbs_g": 50,
+        "fat_g": 5
+      },
+      "yields": {
+        "cooked": 1.8,
+        "waste_pct": 0.02
+      }
+    },
+    {
+      "id": "chicken",
+      "name": "Peito de frango",
+      "portion": {
+        "unit": "gram",
+        "grams": 100,
+        "kcal": 165,
+        "protein_g": 31,
+        "carbs_g": 0,
+        "fat_g": 4
+      },
+      "yields": {
+        "cooked": 0.74,
+        "waste_pct": 0.0
+      }
+    },
+    {
+      "id": "broccoli",
+      "name": "Brócolis",
+      "portion": {
+        "unit": "cup",
+        "grams": 90,
+        "kcal": 55,
+        "protein_g": 4,
+        "carbs_g": 11,
+        "fat_g": 1
+      },
+      "yields": {
+        "cooked": 0.85,
+        "waste_pct": 0.1
+      }
+    },
+    {
+      "id": "banana",
+      "name": "Banana",
+      "portion": {
+        "unit": "unit",
+        "grams": 120,
+        "kcal": 105,
+        "protein_g": 1,
+        "carbs_g": 27,
+        "fat_g": 0
+      },
+      "yields": {
+        "cooked": 1.0,
+        "waste_pct": 0.05
+      }
+    }
+  ]
+}
