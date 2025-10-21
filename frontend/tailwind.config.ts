@@ -17,6 +17,9 @@ const config: Config = {
         accent: {
           500: "#f97316"
         }
+      },
+      borderRadius: {
+        xl: "0.75rem"
       }
     }
   },

@@ -8,3 +8,5 @@ poetry.lock
 .idea/
 .vscode/
 .DS_Store
+node_modules/
+.next/
