@@ -27,6 +27,10 @@
 | `pnpm build` | Build produção |
 | `pnpm start` | Servir build |
 
+### Observações para Windows
+
+- Para remover a pasta de cache do Next.js use PowerShell com `Remove-Item -Recurse -Force .next`.
+
 ## Variáveis (`.env.local`)
 
 ```
