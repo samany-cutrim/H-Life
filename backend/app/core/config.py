@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     jwt_refresh_expire_minutes: int = 60 * 24 * 7
 
     allowed_origins: Sequence[str] = ("*",)
+    allow_credentials: bool = False
 
     class Config:
         env_file = ".env"
