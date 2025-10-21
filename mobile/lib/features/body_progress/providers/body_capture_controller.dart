@@ -119,6 +119,7 @@ class BodyCaptureController extends StateNotifier<BodyCaptureState> {
       final next = state.countdown - 1;
       if (next <= 0) {
         timer.cancel();
+        _timer = null;
         state = state.copyWith(isCountingDown: false, countdown: 0);
         final file = await controller.takePicture();
         state = state.copyWith(capturedFile: File(file.path), overrideCapture: true);
@@ -126,6 +127,14 @@ class BodyCaptureController extends StateNotifier<BodyCaptureState> {
         state = state.copyWith(countdown: next);
       }
     });
+  }
+
+  void cancelCountdown() {
+    _timer?.cancel();
+    _timer = null;
+    if (state.isCountingDown || state.countdown != 3) {
+      state = state.copyWith(isCountingDown: false, countdown: 3);
+    }
   }
 
   Future<void> uploadCapture() async {
@@ -148,13 +157,12 @@ class BodyCaptureController extends StateNotifier<BodyCaptureState> {
 
   @override
   void dispose() {
-    _timer?.cancel();
+    cancelCountdown();
     super.dispose();
   }
 }
 
-final bodyCaptureControllerProvider =
-    StateNotifierProvider<BodyCaptureController, BodyCaptureState>((ref) {
+final bodyCaptureControllerProvider = StateNotifierProvider.autoDispose<BodyCaptureController, BodyCaptureState>((ref) {
   final repository = ref.watch(bodyProgressRepositoryProvider);
   return BodyCaptureController(repository);
 });

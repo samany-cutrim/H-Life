@@ -27,6 +27,7 @@ class _BodyComparisonScreenState extends ConsumerState<BodyComparisonScreen> {
         afterId: _afterId!,
         view: _view,
       );
+      if (!mounted) return;
       setState(() => _result = analysis);
     } catch (e) {
       if (!mounted) return;

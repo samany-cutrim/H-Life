@@ -28,6 +28,7 @@ class _BodyCaptureScreenState extends ConsumerState<BodyCaptureScreen> {
 
   @override
   void dispose() {
+    ref.read(bodyCaptureControllerProvider.notifier).cancelCountdown();
     _controller?.dispose();
     super.dispose();
   }
