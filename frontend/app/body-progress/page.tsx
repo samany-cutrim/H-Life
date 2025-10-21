@@ -115,6 +115,8 @@ export default function BodyProgressPage() {
     loading: false
   });
 
+  const objectUrlsRef = useRef<string[]>([]);
+
   const groupedGallery = useMemo(() => groupByDate(gallery), [gallery]);
 
   const selectedBefore = useMemo(
@@ -133,11 +135,15 @@ export default function BodyProgressPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [compareSelection.before, compareSelection.after]);
 
+  useEffect(() => {
+    objectUrlsRef.current = objectUrls;
+  }, [objectUrls]);
+
   useEffect(
     () => () => {
-      objectUrls.forEach((url) => URL.revokeObjectURL(url));
+      objectUrlsRef.current.forEach((url) => URL.revokeObjectURL(url));
     },
-    [objectUrls]
+    []
   );
 
   const handleSelectView = (view: BodyView) => {
