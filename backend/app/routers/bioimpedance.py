@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 
 from app.core.deps import get_current_user
 from app.models import User
@@ -56,10 +56,12 @@ async def update_record(
 async def delete_record(
     record_id: str,
     user: User = Depends(get_current_user),
-) -> None:
+) -> Response:
     deleted = service.delete(str(user.id), record_id)
     if not deleted:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Record not found")
+
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
 @router.get("/summary", response_model=BioimpedanceSummaryResponse)

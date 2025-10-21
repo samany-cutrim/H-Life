@@ -10,9 +10,17 @@ from alembic import context
 from app.core.config import get_settings
 from app.models import Base
 
+
+def _get_sync_database_url(async_url: str) -> str:
+    """Convert the async database URL to a sync-compatible URL for Alembic."""
+
+    if async_url.startswith("postgresql+asyncpg"):
+        return async_url.replace("+asyncpg", "+psycopg", 1)
+    return async_url
+
 config = context.config
 settings = get_settings()
-config.set_main_option("sqlalchemy.url", str(settings.database_url))
+config.set_main_option("sqlalchemy.url", _get_sync_database_url(str(settings.database_url)))
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
