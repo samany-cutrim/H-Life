@@ -61,5 +61,5 @@ Este documento consolida funcionalidades estratégicas descritas na visão do ap
 - **Gestão de tiers (Gratuito vs Premium)** com controle de acesso a funcionalidades avançadas (análise de vídeo, relatórios, ajustes automáticos).
 - **Cobrança recorrente e faturamento** com suporte a gateways de pagamento, faturamento em diferentes moedas e notas fiscais.
 - **Mecanismo de comissionamento** transparente para marketplace de profissionais e parcerias com marcas fitness.
-
+0
 > **Próximos passos sugeridos:** priorizar a implementação de um serviço de chat multimodal real, estabelecer o módulo de gamificação e definir MVP para onboarding de profissionais, pois esses blocos desbloqueiam diferenciais competitivos e caminhos de monetização.
