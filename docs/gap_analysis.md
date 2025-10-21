@@ -47,4 +47,19 @@ Este documento consolida funcionalidades estratégicas descritas na visão do ap
 - **Alertas proativos** (PagerDuty/Slack) para falhas em pipelines de IA ou ingestão de dados.
 - **Dashboards de métricas** de uso (ex.: consultas ao LLM, uploads processados, taxa de erro). Atualmente existem apenas instruções genéricas em `docs/devops.md`.
 
+## 10. Score de Saúde Unificado
+- **Modelo de cálculo de score** que combine dieta, treino, hidratação e evolução corporal com pesos configuráveis.
+- **Feedback acionável** a partir do score (ex.: avisos quando cair abaixo de limiares, recomendações de foco semanal).
+- **Visualização histórica** do score e comparação com média da comunidade ou metas definidas pelo usuário/profissional.
+
+## 11. Modo de Emergência e Alertas Preventivos
+- **Detecção automática** de padrões críticos (ex.: relatos de dor aguda, marcadores clínicos fora do intervalo) para acionar modo de emergência.
+- **Fluxo de escalonamento** com envio de alertas a contatos pré-definidos ou profissionais responsáveis.
+- **Protocolos de resposta** documentados na aplicação (orientações passo a passo, botões de emergência) integrados ao chat multimodal.
+
+## 12. Monetização e Planos de Assinatura
+- **Gestão de tiers (Gratuito vs Premium)** com controle de acesso a funcionalidades avançadas (análise de vídeo, relatórios, ajustes automáticos).
+- **Cobrança recorrente e faturamento** com suporte a gateways de pagamento, faturamento em diferentes moedas e notas fiscais.
+- **Mecanismo de comissionamento** transparente para marketplace de profissionais e parcerias com marcas fitness.
+0
 > **Próximos passos sugeridos:** priorizar a implementação de um serviço de chat multimodal real, estabelecer o módulo de gamificação e definir MVP para onboarding de profissionais, pois esses blocos desbloqueiam diferenciais competitivos e caminhos de monetização.
