@@ -33,12 +33,23 @@ class InMemoryRateLimiter:
             bucket.append(now)
 
 
+_rate_limiter: InMemoryRateLimiter | None = None
+_rate_limiter_lock = asyncio.Lock()
+
+
 async def get_rate_limiter() -> InMemoryRateLimiter:
-    settings = get_settings()
-    return InMemoryRateLimiter(
-        max_requests=settings.rate_limit_max_requests,
-        window_seconds=settings.rate_limit_window_seconds,
-    )
+    global _rate_limiter
+
+    if _rate_limiter is None:
+        async with _rate_limiter_lock:
+            if _rate_limiter is None:
+                settings = get_settings()
+                _rate_limiter = InMemoryRateLimiter(
+                    max_requests=settings.rate_limit_max_requests,
+                    window_seconds=settings.rate_limit_window_seconds,
+                )
+
+    return _rate_limiter
 
 
 def rate_limiter(identifier_dependency: IdentifierDependency):
