@@ -8,10 +8,12 @@ settings = get_settings()
 
 app = FastAPI(title=settings.app_name)
 
+allow_credentials = settings.allow_credentials and "*" not in settings.allowed_origins
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=list(settings.allowed_origins),
-    allow_credentials=True,
+    allow_credentials=allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )
