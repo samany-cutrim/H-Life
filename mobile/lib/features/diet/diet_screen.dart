@@ -57,13 +57,17 @@ class _DietScreenState extends ConsumerState<DietScreen> {
     try {
       final picture = await _cameraController!.takePicture();
       final dio = ref.read(dioProvider);
+      if (!mounted) return;
       setState(() => _isUploading = true);
       final response = await dio.post('/diet/analyze',
           data: FormData.fromMap({'photo': await MultipartFile.fromFile(picture.path)}));
+      if (!mounted) return;
       setState(() => _analysis = response.data['analysis'] as String? ?? 'Sem retorno.');
     } catch (e) {
+      if (!mounted) return;
       setState(() => _analysis = 'Erro ao analisar: $e');
     } finally {
+      if (!mounted) return;
       setState(() => _isUploading = false);
     }
   }
