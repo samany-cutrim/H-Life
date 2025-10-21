@@ -112,6 +112,7 @@ graph TD
 - [Segurança e LGPD](docs/security.md)
 - [DevOps & Qualidade](docs/devops.md)
 - [Lançamento](docs/launch.md)
+- [Lacunas de Produto](docs/gap_analysis.md)
 
 ## Licença
 
